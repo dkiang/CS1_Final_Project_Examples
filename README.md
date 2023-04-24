@@ -7,7 +7,7 @@ These are sample programs for the final project. Python files end in .py and may
 C files end in .c and are already compiled. They may be run with the following:
 `./filename`
 
-blackjack.py
+### blackjack.py
 This is a program that lets you play a card game called Blackjack on your computer! The goal of the game is to get as close to 21 points as possible without going over. In the game, you play against the computer, who is the dealer.
 
 connect-4.c
