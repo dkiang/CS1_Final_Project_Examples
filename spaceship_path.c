@@ -4,6 +4,11 @@
 #include <limits.h>
 
 #define SIZE 10
+#define RED "\x1B[31m"
+#define GREEN "\x1B[32m"
+#define YELLOW "\x1B[33m"
+#define BLUE "\x1B[34m"
+#define RESET "\x1B[0m"
 
 // Structure to represent a node (space) in the grid
 typedef struct {
@@ -73,7 +78,15 @@ void printGrid(int grid[SIZE][SIZE]) {
     printf("Grid:\n");
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
-            printf("%d ", grid[i][j]);
+            if (grid[i][j] < 3) {
+                printf(GREEN "%d " RESET, grid[i][j]);
+            }
+            else if (grid[i][j] < 6) {
+                printf(YELLOW "%d " RESET, grid[i][j]);
+            }
+            else {
+                printf(RED "%d " RESET, grid[i][j]);
+            }
         }
         printf("\n");
     }
@@ -276,9 +289,9 @@ void printPath(int path[SIZE][SIZE], int fuelCost) {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             if (path[i][j]) {
-                printf("x ");
+                printf(RED "x " RESET);
             } else {
-                printf(". ");
+                printf(BLUE ". " RESET);
             }
         }
         printf("\n");
