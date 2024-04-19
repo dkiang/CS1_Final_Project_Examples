@@ -1,7 +1,7 @@
 # CS1_Final_Project_Examples
 ## Examples of CS1 Final Projects
 
-These are sample programs for the final project. Python files end in .py and may be run with the folloing:
+These are sample programs for the final project. Python files end in .py and may be run with the following:
 `python filename.py`
 
 C files end in .c and are already compiled. They may be run with the following:
