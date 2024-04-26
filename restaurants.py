@@ -16,18 +16,23 @@ def main():
 def get_favorite_restaurants():
     restaurants = []
     while True:
-        user_input = input("Enter the name of one of your favorite restaurants (or type 'done' to finish): ")
-        if user_input.lower() == 'done':
+        restaurant_name = input("Enter the name of one of your favorite restaurants (or type 'done' to finish): ")
+        if restaurant_name.lower() == 'done':
             break
-        else:
-            restaurants.append(user_input)
+        rating = int(input("Rate this restaurant from 1 to 5: "))
+        while rating < 1 or rating > 5:
+            print("Invalid rating. Please enter a rating from 1 to 5.")
+            rating = int(input("Rate this restaurant from 1 to 5: "))
+        restaurants.append((restaurant_name, rating))
     return restaurants
 
 def recommend_restaurant(restaurants):
     if not restaurants:
         print("You haven't added any restaurants to the list.")
     else:
-        choice = random.choice(restaurants)
+        # Create a list of choices weighted by the rating
+        weighted_choices = [restaurant for restaurant, rating in restaurants for _ in range(rating)]
+        choice = random.choice(weighted_choices)
         print(f"We recommend you visit {choice}.")
 
 if __name__ == "__main__":
